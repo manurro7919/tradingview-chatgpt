@@ -1,0 +1,6 @@
+main.py
+requirements.txt
+openapi.yaml
+README.md
+.env.example
+alerts.json
