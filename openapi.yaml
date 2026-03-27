@@ -1,0 +1,58 @@
+openapi: 3.1.0
+info:
+  title: Trading Alerts API
+  version: 1.0.0
+  description: API para consultar alertas de TradingView
+servers:
+  - url: https://tradingview-chatgpt.onrender.com
+paths:
+  /alerts/today:
+    get:
+      operationId: getAlertsToday
+      summary: Obtener alertas de hoy
+      responses:
+        '200':
+          description: Lista de alertas de hoy
+          content:
+            application/json:
+              schema:
+                type: object
+  /alerts/{ticker}:
+    get:
+      operationId: getAlertsByTicker
+      summary: Obtener alertas por ticker
+      parameters:
+        - in: path
+          name: ticker
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lista de alertas del ticker
+          content:
+            application/json:
+              schema:
+                type: object
+  /signals/best:
+    get:
+      operationId: getBestSignals
+      summary: Obtener mejores señales del día
+      responses:
+        '200':
+          description: Mejores señales disponibles
+          content:
+            application/json:
+              schema:
+                type: object
+  /portfolio/signals:
+    get:
+      operationId: getPortfolioSignals
+      summary: Obtener señales de la cartera
+      responses:
+        '200':
+          description: Señales de la cartera del usuario
+          content:
+            application/json:
+              schema:
+                type: object
